@@ -1,5 +1,18 @@
 package com.example.biblioteca.model;
 
-public class libro {
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Data;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+
+public class libro {
+    private int id;
+    private String isbn;
+    private String titulo;
+    private String editorial;
+    private int fechaPublicacion;
+    private String autor;
 }

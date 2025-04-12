@@ -54,6 +54,10 @@ public class LibroRepositorio {
         return null;
     }
 
+    public void guardarLibro(libro nuevoLibro){
+        listaLibros.add(nuevoLibro);
+    }
+
     public void actualizarLibro(libro lib){
         int id = lib.getId();
         for (int i=0; i<listaLibros.size(); i++){
@@ -64,5 +68,11 @@ public class LibroRepositorio {
             }
         }
         System.out.println("No se encontro un libro con la id " + id +" para actualizar");
+    }
+
+    public void eliminarLibro(int id){
+        //Funcion lambda
+        listaLibros.removeIf((x) -> x.getId() == id);
+
     }
 }

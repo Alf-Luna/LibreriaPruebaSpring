@@ -32,17 +32,37 @@ public class LibroRepositorio {
     }
 
     //buscar libro por isbn
+    public libro buscarLibroPorIsbn(String isbn){
+        for(libro libro : listaLibros){
+            if (libro.getIsbn() == isbn){
+                return libro;
+            }
+        }
+        System.out.println("No se ha encontrado un libro del isbn: " + isbn);
+        return null;
+    }
+
     //buscar por autor
+    public libro buscarLibroPorAutor(String autor){
+        autor = autor.toLowerCase();
+        for(libro libro : listaLibros){
+            if (libro.getAutor().toLowerCase() == autor){
+                return libro;
+            }
+        }
+        System.out.println("No se ha encontrado un libro del autor: " + autor);
+        return null;
+    }
 
     public void actualizarLibro(libro lib){
-        int id = 0;
-        int idPosicion = 0;
+        int id = lib.getId();
         for (int i=0; i<listaLibros.size(); i++){
-            if (listaLibros.get(i).getId() == lib.getId()){
-                id = lib.getId();
-                idPosicion = i;
+            if (listaLibros.get(i).getId() == id){
+                listaLibros.set(i, lib);
+                System.out.println("Se ha actualizado el libro exitosamente");
+                return;
             }
-
         }
+        System.out.println("No se encontro un libro con la id " + id +" para actualizar");
     }
 }
